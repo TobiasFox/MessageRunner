@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private string moveUp;
     private string moveUpDown;
     private string fire1;
-    private bool moveHorizontal = true;
+    private bool moveHorizontal = false;
     private float yValue = 0;
 
 
@@ -87,6 +87,18 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
             moveHorizontal = !moveHorizontal;
+            Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("HorizontalMovementTrigger"))
+        {
+            moveHorizontal = !moveHorizontal;
+            Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
+        }
+    }
+
+
 }
