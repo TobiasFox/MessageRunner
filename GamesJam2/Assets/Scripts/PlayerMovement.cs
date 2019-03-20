@@ -46,16 +46,34 @@ public class PlayerMovement : MonoBehaviour
         var movement = new Vector3(inputX, 0, inputZ);
 
         rb.velocity = movement * speed;
+    }
 
-        if (Input.GetButton(fire1))
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetButtonDown(fire1))
         {
-            transform.position = originVec3Down;
+            PlaneSwitch planeSwitch = other.GetComponent<PlaneSwitch>();
+            if (planeSwitch != null && planeSwitch.GetPlaneSwitchDown() != null)
+            {
+                var yValue = other.GetComponent<PlaneSwitch>().GetPlaneSwitchDown().position.y;
+                var newPosition = new Vector3(transform.position.x, yValue + .5f, transform.position.z);
+                Debug.Log("newPosition: " + newPosition);
+                transform.position = newPosition;
+            }
         }
 
-        if (Input.GetButton(fire2))
+        if (Input.GetButtonDown(fire2))
         {
-            transform.position = originVec3Top;
+            PlaneSwitch planeSwitch = other.GetComponent<PlaneSwitch>();
+            if (planeSwitch != null && planeSwitch.GetPlaneSwitchTop() != null)
+            {
+                var yValue = other.GetComponent<PlaneSwitch>().GetPlaneSwitchTop().position.y;
+                var newPosition = new Vector3(transform.position.x, yValue + .5f, transform.position.z);
+                Debug.Log("newPosition: " + newPosition);
+                transform.position = newPosition;
+            }
         }
+
     }
 
 }

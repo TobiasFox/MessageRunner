@@ -613,6 +613,8 @@ GameObject:
   - component: {fileID: 1059425656}
   - component: {fileID: 1059425655}
   - component: {fileID: 1059425654}
+  - component: {fileID: 1059425659}
+  - component: {fileID: 1059425658}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Untagged
@@ -687,12 +689,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059425653}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4487176, y: -2.0299187, z: -3.3458672}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1319328857}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1059425658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059425653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132255a7692591a47a06b2b71851f0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeToSwitchTop: {fileID: 1717868078}
+  planeToSwitchDown: {fileID: 0}
+--- !u!65 &1059425659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059425653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 0.1, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1319328856
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +746,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319328856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4487176, y: -3.4700813, z: 3.3458672}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1717868078}
@@ -861,6 +890,7 @@ GameObject:
   - component: {fileID: 1717868076}
   - component: {fileID: 1717868075}
   - component: {fileID: 1717868080}
+  - component: {fileID: 1717868079}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -935,12 +965,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717868074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4487176, y: 3.4700813, z: -3.3458672}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1319328857}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717868079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717868074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132255a7692591a47a06b2b71851f0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeToSwitchTop: {fileID: 0}
+  planeToSwitchDown: {fileID: 1059425657}
 --- !u!65 &1717868080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -949,10 +993,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717868074}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 0.03, z: 10}
+  m_Size: {x: 10, y: 0.12, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2098937792
 GameObject:
