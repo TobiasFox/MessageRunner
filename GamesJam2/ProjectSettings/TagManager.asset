@@ -4,6 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - BlueMessage
+  - GreenMessage
+  - RedMessage
+  - YellowMessage
+  - Blue
+  - Green
+  - Red
+  - Yellow
   - HorizontalMovement
   - HorizontalMovementTrigger
   layers:
