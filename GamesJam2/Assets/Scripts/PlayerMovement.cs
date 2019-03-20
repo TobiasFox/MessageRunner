@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
-    [SerializeField] [Range(1, 4)] private int playerNumber = 1;
+    [SerializeField] [Range(0, 3)] private int playerNumber = 0;
 
     int PlayerNumber
     {
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private string fire2;
     private Vector3 originVec3Top;
     private Vector3 originVec3Down;
+    private string fire3;
 
     void Awake()
     {
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         verticalInputString = "Vertical_P" + playerNumber;
         fire1 = "Fire1_P" + playerNumber;
         fire2 = "Fire2_P" + playerNumber;
+        fire3 = "Fire3_P" + playerNumber;
+
         originVec3Top = transform.position;
         originVec3Down = new Vector3(transform.position.x, -5f, transform.position.z);
     }
@@ -44,8 +47,12 @@ public class PlayerMovement : MonoBehaviour
         float inputZ = Input.GetAxis(verticalInputString);
 
         var movement = new Vector3(inputX, 0, inputZ);
-
         rb.velocity = movement * speed;
+
+        if (Input.GetButtonDown(fire3))
+        {
+            Debug.Log("bash" + playerNumber);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -57,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 var yValue = other.GetComponent<PlaneSwitch>().GetPlaneSwitchDown().position.y;
                 var newPosition = new Vector3(transform.position.x, yValue + .5f, transform.position.z);
-                Debug.Log("newPosition: " + newPosition);
                 transform.position = newPosition;
             }
         }
@@ -69,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 var yValue = other.GetComponent<PlaneSwitch>().GetPlaneSwitchTop().position.y;
                 var newPosition = new Vector3(transform.position.x, yValue + .5f, transform.position.z);
-                Debug.Log("newPosition: " + newPosition);
                 transform.position = newPosition;
             }
         }
