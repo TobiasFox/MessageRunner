@@ -14,7 +14,7 @@ public class PoolBehaviour : MonoBehaviour
     private int poolIndex;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pool = new GameObject[poolSize];
         for(int i=0;i<poolSize;i++)
@@ -38,7 +38,7 @@ public class PoolBehaviour : MonoBehaviour
         return null;
     }
 
-    public void FreeObject(GameObject poolObject)
+    public void ReleaseObject(GameObject poolObject)
     {
         poolObject.SetActive(false);
     }

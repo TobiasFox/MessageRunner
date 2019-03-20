@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] [Range(0, 3)] private int playerNumber = 0;
 
-    int PlayerNumber
+    public int PlayerNumber
     {
         get
         {

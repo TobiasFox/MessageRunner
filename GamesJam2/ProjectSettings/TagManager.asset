@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Message
   layers:
   - Default
   - TransparentFX
@@ -13,14 +14,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BlueMessage
+  - GreenMessage
+  - RedMessage
+  - YellowMessage
+  - Blue
+  - Green
+  - Red
+  - Yellow
   - 
   - 
   - 

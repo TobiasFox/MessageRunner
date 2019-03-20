@@ -7,7 +7,7 @@ public class TestPlayer : MonoBehaviour
     public float speed;
     public int playerNum;
     [SerializeField]
-    private DefineColors defineColors;
+    private CustomColors defineColors;
 
     private Rigidbody rb;
 
