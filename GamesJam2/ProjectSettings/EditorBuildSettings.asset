@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TobiasScene.unity
+    guid: d03984790ad78ce4cbff3645cc174f92
   m_configObjects: {}

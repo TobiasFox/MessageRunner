@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,23 +23,22 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private string horizontalInputString;
     private string verticalInputString;
+    private string moveDown;
+    private string moveUp;
+    private string moveUpDown;
     private string fire1;
-    private string fire2;
-    private Vector3 originVec3Top;
-    private Vector3 originVec3Down;
-    private string fire3;
+    private bool moveHorizontal = true;
+    private float yValue = 0;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         horizontalInputString = "Horizontal_P" + playerNumber;
         verticalInputString = "Vertical_P" + playerNumber;
+        moveDown = "MoveDown_P" + playerNumber;
+        moveUp = "MoveUp_P" + playerNumber;
+        moveUpDown = "MoveUpDown_P0";
         fire1 = "Fire1_P" + playerNumber;
-        fire2 = "Fire2_P" + playerNumber;
-        fire3 = "Fire3_P" + playerNumber;
-
-        originVec3Top = transform.position;
-        originVec3Down = new Vector3(transform.position.x, -5f, transform.position.z);
     }
 
     void Update()
@@ -46,39 +46,45 @@ public class PlayerMovement : MonoBehaviour
         float inputX = Input.GetAxis(horizontalInputString);
         float inputZ = Input.GetAxis(verticalInputString);
 
-        var movement = new Vector3(inputX, 0, inputZ);
+        yValue = moveHorizontal ? GetYValueInput() : 0;
+
+        var movement = new Vector3(inputX, yValue, inputZ);
         rb.velocity = movement * speed;
 
-        if (Input.GetButtonDown(fire3))
+        if (Input.GetButtonDown(fire1))
         {
             Debug.Log("bash" + playerNumber);
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private float GetYValueInput()
     {
-        if (Input.GetButtonDown(fire1))
+        if (playerNumber == 1)
         {
-            PlaneSwitch planeSwitch = other.GetComponent<PlaneSwitch>();
-            if (planeSwitch != null && planeSwitch.GetPlaneSwitchDown() != null)
-            {
-                var yValue = other.GetComponent<PlaneSwitch>().GetPlaneSwitchDown().position.y;
-                var newPosition = new Vector3(transform.position.x, yValue + .5f, transform.position.z);
-                transform.position = newPosition;
-            }
-        }
+            Debug.Log("moveDown: " + Input.GetAxis(moveDown));
 
-        if (Input.GetButtonDown(fire2))
+        }
+        var yValue = 0f;
+        if (playerNumber == 0 && Input.GetButton(moveUpDown))
         {
-            PlaneSwitch planeSwitch = other.GetComponent<PlaneSwitch>();
-            if (planeSwitch != null && planeSwitch.GetPlaneSwitchTop() != null)
-            {
-                var yValue = other.GetComponent<PlaneSwitch>().GetPlaneSwitchTop().position.y;
-                var newPosition = new Vector3(transform.position.x, yValue + .5f, transform.position.z);
-                transform.position = newPosition;
-            }
+            yValue = Input.GetAxis(moveUpDown);
         }
-
+        else if (Input.GetAxis(moveDown) < 0)
+        {
+            yValue = Input.GetAxis(moveDown);
+        }
+        else if (Input.GetAxis(moveUp) > 0)
+        {
+            yValue = Input.GetAxis(moveUp);
+        }
+        return yValue;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("HorizontalMovementTrigger"))
+        {
+            moveHorizontal = !moveHorizontal;
+        }
+    }
 }
