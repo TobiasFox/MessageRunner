@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
-    [SerializeField] [Range(0, 3)] private int playerNumber = 0;
+    private static float EPSILON = 0.0001f;
 
     public int PlayerNumber
     {
@@ -20,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    [SerializeField] private float speed = 5;
+    [SerializeField] [Range(0, 3)] private int playerNumber = 0;
     private Rigidbody rb;
     private string horizontalInputString;
     private string verticalInputString;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private string fire1;
     private bool moveHorizontal = true;
     private float yValue = 0;
+
 
     void Awake()
     {
@@ -51,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
         var movement = new Vector3(inputX, yValue, inputZ);
         rb.velocity = movement * speed;
 
+        if (movement.magnitude > EPSILON)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 1f);
+        }
+
         if (Input.GetButtonDown(fire1))
         {
             Debug.Log("bash" + playerNumber);
@@ -59,11 +66,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float GetYValueInput()
     {
-        if (playerNumber == 1)
-        {
-            Debug.Log("moveDown: " + Input.GetAxis(moveDown));
-
-        }
         var yValue = 0f;
         if (playerNumber == 0 && Input.GetButton(moveUpDown))
         {
