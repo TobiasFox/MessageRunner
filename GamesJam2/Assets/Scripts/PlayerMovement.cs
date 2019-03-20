@@ -30,10 +30,15 @@ public class PlayerMovement : MonoBehaviour
     private string fire1;
     private bool moveHorizontal = false;
     private float yValue = 0;
-
+    private BashZone bashArea;
+    private bool isStunned = false;
+    [SerializeField] private float stunTime = 1f;
+    [SerializeField] private float bashSpeed = 350f;
 
     void Awake()
     {
+        bashArea = GetComponentInChildren<BashZone>();
+
         rb = GetComponent<Rigidbody>();
         horizontalInputString = "Horizontal_P" + playerNumber;
         verticalInputString = "Vertical_P" + playerNumber;
@@ -45,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (isStunned)
+        {
+            return;
+        }
+
         float inputX = Input.GetAxis(horizontalInputString);
         float inputZ = Input.GetAxis(verticalInputString);
 
@@ -60,7 +70,28 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown(fire1))
         {
-            Debug.Log("bash" + playerNumber);
+            BashPlayers();
+        }
+    }
+
+    private void BashPlayers()
+    {
+        Debug.Log("bash from " + playerNumber);
+
+        foreach (var go in bashArea.GetPlayers())
+        {
+            if (go == null)
+            {
+                continue;
+            }
+
+            var otherRB = go.GetComponent<Rigidbody>();
+            var otherPlayerMovement = go.GetComponent<PlayerMovement>();
+            if (otherRB != null && otherPlayerMovement != null)
+            {
+                StartCoroutine(otherPlayerMovement.SetStunned());
+                otherRB.AddForce(transform.forward * bashSpeed);
+            }
         }
     }
 
@@ -100,5 +131,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
+    public IEnumerator SetStunned()
+    {
+        Debug.Log("player " + playerNumber + " is stunned");
+        isStunned = true;
+        yield return new WaitForSeconds(stunTime);
+        isStunned = false;
+        Debug.Log("player " + playerNumber + " isn't stunned anymore");
+    }
 }
