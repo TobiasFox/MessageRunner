@@ -740,50 +740,6 @@ Transform:
   m_Father: {fileID: 1476603649}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &828556691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 828556692}
-  - component: {fileID: 828556693}
-  m_Layer: 0
-  m_Name: ChargeArea
-  m_TagString: PowerStation
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &828556692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828556691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1235139041}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &828556693
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828556691}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &922022734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1245,31 +1201,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1235139037 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5802838108783806821, guid: 8776cbe9a01f8834699fc379d2265b1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5802838107836788920}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1235139038
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235139037}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1235139041 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5802838108783806809, guid: 8776cbe9a01f8834699fc379d2265b1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5802838107836788920}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1281308012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
@@ -2288,11 +2219,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PowerStation
       objectReference: {fileID: 0}
-    - target: {fileID: 5802838108783806821, guid: 8776cbe9a01f8834699fc379d2265b1e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 5802838108783806809, guid: 8776cbe9a01f8834699fc379d2265b1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2348,8 +2274,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5802838108783806822, guid: 8776cbe9a01f8834699fc379d2265b1e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8776cbe9a01f8834699fc379d2265b1e, type: 3}
 --- !u!1001 &5825690800395750649
 PrefabInstance:
