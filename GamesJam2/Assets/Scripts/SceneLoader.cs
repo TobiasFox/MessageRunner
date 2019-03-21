@@ -1,18 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneSwitch : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private AsyncOperation asyncOperation;
+    [SerializeField] private string sceneToLoad = "";
+
+    private void Start()
     {
-        
+        StartAsyncSceneLoading(sceneToLoad);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartAsyncSceneLoading(string sceneName)
     {
-        
+        StartCoroutine(LoadScene(sceneName));
+    }
+
+    private IEnumerator LoadScene(string sceneName)
+    {
+        asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        asyncOperation.allowSceneActivation = false;
+
+        yield return null;
+    }
+
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            asyncOperation.allowSceneActivation = true;
+        }
     }
 }

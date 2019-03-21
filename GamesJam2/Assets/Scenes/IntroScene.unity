@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b629666fd8d8ff941af34c5ba2c7c127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: TobiasScene
 --- !u!1 &1754214756
 GameObject:
   m_ObjectHideFlags: 0
