@@ -7,24 +7,14 @@ public class PlayerCollisionHandler : MonoBehaviour
     [SerializeField] private PoolBehaviour poolBehaviour;
 
 
-    private PlayerManager playerManager;
+    private PlayerMessageSystem playerMessageSystem;
+    private PlayerCharge playerCharge;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerManager=GetComponent<PlayerManager>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //if(other.tag=="Message")
-        //{
-        //    Debug.Log(other);
-        //    playerManager.PickUpMessage(other.transform.position);
-        //    poolBehaviour.ReleaseObject(other.gameObject);
-        //}
-        
-        
+        playerMessageSystem=GetComponent<PlayerMessageSystem>();
+        playerCharge = GetComponent<PlayerCharge>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,17 +22,33 @@ public class PlayerCollisionHandler : MonoBehaviour
         if (collision.transform.tag == "Message")
         {
             Debug.Log(collision);
-            playerManager.PickUpMessage(collision.transform.position);
+            playerMessageSystem.PickUpMessage(collision.transform.position);
             poolBehaviour.ReleaseObject(collision.gameObject);
         }
 
-        if (collision.transform.tag == "Player" && playerManager.isCarryingMessage)
+        if (collision.transform.tag == "Player" && playerMessageSystem.isCarryingMessage)
         {
             PlayerManager otherPlayerManager = collision.gameObject.GetComponent<PlayerManager>();
-            if (otherPlayerManager.playerNumber == playerManager.messageColor)
+            if (otherPlayerManager.playerNumber == playerMessageSystem.messageColor)
             {
-                playerManager.DeliverMessage();
+                playerMessageSystem.DeliverMessage();
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag=="PowerStation")
+        {
+            playerCharge.isChargeable = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "PowerStation")
+        {
+            playerCharge.isChargeable = false;
         }
     }
 }
