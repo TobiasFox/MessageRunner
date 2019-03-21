@@ -1894,16 +1894,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872751298}
     m_Modifications:
-    - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: waitBeforeCharge
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: chargePerSecond
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3422305953705332393, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: m_Name
@@ -1989,6 +1979,21 @@ PrefabInstance:
       propertyPath: poolBehaviour
       value: 
       objectReference: {fileID: 1132449548}
+    - target: {fileID: 1025419975987907795, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: messagesSpawn
+      value: 
+      objectReference: {fileID: 1476603650}
+    - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: waitBeforeCharge
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: chargePerSecond
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3646215168198544988, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2034,11 +2039,6 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 1025419975987907795, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: messagesSpawn
-      value: 
-      objectReference: {fileID: 1476603650}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e1d708064e69a742824c42482c297b6, type: 3}
 --- !u!4 &1833447669 stripped
