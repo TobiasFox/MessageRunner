@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MessageSymbolFollow : MonoBehaviour
 {
-    [SerializeField] private speed;
+    [SerializeField] private float speed;
 
     private Transform objectToFollow;
     private Vector3 offset;
