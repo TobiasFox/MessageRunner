@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
         startGameAudioSource = GetComponent<AudioSource>();
         backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic")?.GetComponent<AudioSource>();
 
-        StartAsyncSceneLoading(sceneToLoad);
+        //StartAsyncSceneLoading(sceneToLoad);
     }
 
     public void StartAsyncSceneLoading(string sceneName)
@@ -44,9 +44,9 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
-        {
-            StartCoroutine(StartGame());
-        }
+        //if (Input.anyKey)
+        //{
+        //    StartCoroutine(StartGame());
+        //}
     }
 }
