@@ -23,14 +23,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BlueMessage
+  - GreenMessage
+  - RedMessage
+  - YellowMessage
+  - Blue
+  - Green
+  - Red
+  - Yellow
   - 
   - 
   - 
