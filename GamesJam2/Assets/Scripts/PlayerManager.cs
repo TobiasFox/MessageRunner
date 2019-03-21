@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    public delegate void Win();
+    public event Win OnWin;
+
     public int playerNumber { get; private set; }
     public float points { get; set; }
 
@@ -44,6 +47,12 @@ public class PlayerManager : MonoBehaviour
     {
         this.points += points;
         pointsImage.fillAmount = (this.points / maxPoints);
+
+        if(this.points>=maxPoints)
+        {
+            Debug.Log(gameObject + " wins!!");
+            OnWin();
+        }
     }
 
     public float energy
@@ -57,13 +66,8 @@ public class PlayerManager : MonoBehaviour
             _energy = value;
             if (_energy < 0) _energy = 0;
             else if (_energy > maxEnergy) _energy = maxEnergy;
-
-            Debug.Log(_energy / maxEnergy);
-            Debug.Log(255*(_energy / maxEnergy));
             var particleMain = energyParticleSystem.main;
             particleMain.startColor = new Color(customColors.colors[playerNumber].r, customColors.colors[playerNumber].g, customColors.colors[playerNumber].b, (_energy/maxEnergy));
-            //particleMain.startColor = new Color(customColors.colors[playerNumber].r, customColors.colors[playerNumber].g, customColors.colors[playerNumber].b, 0.5f);
-            Debug.Log("a: " + particleMain.startColor.color.a);
         }
     }
 }
