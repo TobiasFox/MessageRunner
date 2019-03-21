@@ -34,10 +34,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isStunned = false;
     [SerializeField] private float stunTime = 1f;
     [SerializeField] private float bashSpeed = 350f;
+    [SerializeField] private float looseEnergyPerStep;
+    [SerializeField] private float looseEnergyPerBash;
     private Quaternion viewingDirection;
+    private PlayerManager playerManager;
 
     void Awake()
     {
+        playerManager = GetComponent<PlayerManager>();
         bashArea = GetComponentInChildren<BashZone>();
 
         rb = GetComponent<Rigidbody>();
@@ -55,6 +59,12 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
+        if (playerManager.energy <= 0)
+        {
+            transform.rotation = viewingDirection;
+            rb.velocity = Vector3.zero;
+            return;
+        }
 
         float inputX = Input.GetAxis(horizontalInputString);
         float inputZ = Input.GetAxis(verticalInputString);
@@ -68,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = movement * speed;
             viewingDirection = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 1f);
             transform.rotation = viewingDirection;
+            playerManager.energy -= looseEnergyPerStep;
         }
         else
         {
@@ -99,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(otherPlayerMovement.SetStunned());
                 otherRB.AddForce(transform.forward * bashSpeed);
             }
+            playerManager.energy -= looseEnergyPerBash;
         }
     }
 

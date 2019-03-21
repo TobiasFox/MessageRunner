@@ -15,8 +15,8 @@ TagManager:
   - HorizontalMovement
   - HorizontalMovementTrigger
   - Message
-  - plane
   - BackgroundMusic
+  - PowerStation
   layers:
   - Default
   - TransparentFX

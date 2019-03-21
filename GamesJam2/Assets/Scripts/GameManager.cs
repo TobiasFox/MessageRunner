@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PlayerManager[] players;
+    [SerializeField] private GameObject[] players;
     [SerializeField] private MessagesSpawn messagesSpawn;
+
 
     // Start is called before the first frame update
     void Start()
@@ -13,8 +14,8 @@ public class GameManager : MonoBehaviour
         messagesSpawn.players = new Transform[players.Length];
         for(int i=0;i<players.Length;i++)
         {
-            players[i].SetPlayerNumber(i);  //TODO replace with player selection
-            players[i].CreateRecieverQueue(players.Length);
+            players[i].GetComponent<PlayerManager>().SetPlayerNumber(i);  //TODO replace with player selection
+            players[i].GetComponent<PlayerMessageSystem>().CreateRecieverQueue(players.Length);
             messagesSpawn.players[i] = players[i].transform;
         }
 
