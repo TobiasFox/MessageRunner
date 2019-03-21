@@ -21,7 +21,7 @@ public class MessagesSpawn : MonoBehaviour
     {
         isPositionBlocked = new Dictionary<Vector3, bool>();
         spawnPositions = new List<Vector3>();
-        startMessageLayer = LayerMask.NameToLayer("BlueMessage");
+        startMessageLayer = LayerMask.NameToLayer("MessageBlue");
         
         foreach(Transform child in transform)
         {
