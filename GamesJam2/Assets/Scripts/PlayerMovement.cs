@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float GetYValueInput()
     {
-        Debug.Log("moveUp " + Input.GetAxis(moveUp) + ", moveDown: " + Input.GetAxis(moveDown));
+        //Debug.Log("moveUp " + Input.GetAxis(moveUp) + ", moveDown: " + Input.GetAxis(moveDown));
         var yValue = 0f;
         if (playerNumber == 0 && Input.GetButton(moveUpDown))
         {
