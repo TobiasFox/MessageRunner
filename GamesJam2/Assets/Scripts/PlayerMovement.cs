@@ -55,8 +55,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (isStunned || playerManager.energy<=0)
+        if (isStunned)
         {
+            return;
+        }
+        if (playerManager.energy <= 0)
+        {
+            transform.rotation = viewingDirection;
+            rb.velocity = Vector3.zero;
             return;
         }
 
@@ -73,8 +79,6 @@ public class PlayerMovement : MonoBehaviour
             viewingDirection = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 1f);
             transform.rotation = viewingDirection;
             playerManager.energy -= looseEnergyPerStep;
-            if (playerManager.energy <= 0)
-                rb.velocity = Vector3.zero;
         }
         else
         {
