@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float GetYValueInput()
     {
+        Debug.Log("moveUp " + Input.GetAxis(moveUp) + ", moveDown: " + Input.GetAxis(moveDown));
         var yValue = 0f;
         if (playerNumber == 0 && Input.GetButton(moveUpDown))
         {
@@ -117,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
-            moveHorizontal = !moveHorizontal;
+            moveHorizontal = true;
             Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
@@ -126,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
-            moveHorizontal = !moveHorizontal;
+            moveHorizontal = false;
             Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
