@@ -17,17 +17,25 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Message")
-        { 
-            playerManager.PickUpMessage(other.transform.position);
-            poolBehaviour.ReleaseObject(other.gameObject);
-        }
+        //if(other.tag=="Message")
+        //{
+        //    Debug.Log(other);
+        //    playerManager.PickUpMessage(other.transform.position);
+        //    poolBehaviour.ReleaseObject(other.gameObject);
+        //}
         
         
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.transform.tag == "Message")
+        {
+            Debug.Log(collision);
+            playerManager.PickUpMessage(collision.transform.position);
+            poolBehaviour.ReleaseObject(collision.gameObject);
+        }
+
         if (collision.transform.tag == "Player" && playerManager.isCarryingMessage)
         {
             PlayerManager otherPlayerManager = collision.gameObject.GetComponent<PlayerManager>();
