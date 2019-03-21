@@ -7,9 +7,16 @@ public class SceneLoader : MonoBehaviour
 {
     private AsyncOperation asyncOperation;
     [SerializeField] private string sceneToLoad = "";
+    private AudioSource startGameAudioSource;
+    private AudioSource backgroundMusic;
+    [SerializeField] private float startSoundLength;
+
 
     private void Start()
     {
+        startGameAudioSource = GetComponent<AudioSource>();
+        backgroundMusic = GameObject.FindGameObjectWithTag("BackgroundMusic")?.GetComponent<AudioSource>();
+
         StartAsyncSceneLoading(sceneToLoad);
     }
 
@@ -26,11 +33,20 @@ public class SceneLoader : MonoBehaviour
         yield return null;
     }
 
+    private IEnumerator StartGame()
+    {
+        backgroundMusic.volume = 0.5f;
+        startGameAudioSource.Play();
+        yield return new WaitForSeconds(startSoundLength);
+        backgroundMusic.volume = 1f;
+        asyncOperation.allowSceneActivation = true;
+    }
+
     private void Update()
     {
         if (Input.anyKey)
         {
-            asyncOperation.allowSceneActivation = true;
+            StartCoroutine(StartGame());
         }
     }
 }
