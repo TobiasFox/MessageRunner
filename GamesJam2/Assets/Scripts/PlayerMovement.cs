@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isStunned = false;
     [SerializeField] private float stunTime = 1f;
     [SerializeField] private float bashSpeed = 350f;
+    private Quaternion viewingDirection;
 
     void Awake()
     {
@@ -61,11 +62,17 @@ public class PlayerMovement : MonoBehaviour
         yValue = moveHorizontal ? GetYValueInput() : 0;
 
         var movement = new Vector3(inputX, yValue, inputZ);
-        rb.velocity = movement * speed;
 
         if (movement.magnitude > EPSILON)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 1f);
+            rb.velocity = movement * speed;
+            viewingDirection = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 1f);
+            transform.rotation = viewingDirection;
+        }
+        else
+        {
+            transform.rotation = viewingDirection;
+            rb.velocity = Vector3.zero;
         }
 
         if (Input.GetButtonDown(fire1))
@@ -119,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
             moveHorizontal = true;
-            Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
+            //Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
 
@@ -128,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
             moveHorizontal = false;
-            Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
+            //Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
 
