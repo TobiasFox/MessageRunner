@@ -201,7 +201,9 @@ MonoBehaviour:
   messagesSpawn: {fileID: 0}
   customColors: {fileID: 11400000, guid: c51070124c720e149b86755e0f6e3a17, type: 2}
   messageSymbol: {fileID: 6674451712374750961}
-  pointsForDelivery: 0
+  pointsForDelivery: 1
+  maxPoints: 10
+  pointsImage: {fileID: 0}
 --- !u!114 &7428990902125387282
 MonoBehaviour:
   m_ObjectHideFlags: 0

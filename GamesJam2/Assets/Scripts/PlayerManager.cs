@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CustomColors customColors;
     [SerializeField] private GameObject messageSymbol;
     [SerializeField] private float pointsForDelivery;
+    [SerializeField] private float maxPoints;
+    [SerializeField] private Image pointsImage;
 
     private PlayerMovement playerMovement;
     private List<int> recieverQueue;
@@ -47,6 +50,7 @@ public class PlayerManager : MonoBehaviour
     {
         Renderer rend = GetComponent<Renderer>();
         rend.material.color = customColors.colors[number];
+        pointsImage.color = customColors.colors[number];
         playerMovement.PlayerNumber = number;
         playerNumber = number;
 
@@ -73,6 +77,7 @@ public class PlayerManager : MonoBehaviour
     {
         isCarryingMessage = false;
         points += pointsForDelivery;
+        pointsImage.fillAmount = (points / maxPoints);
         messageSymbol.SetActive(false);
         messagesSpawn.SpawnMessage((CustomColors.Colors)playerNumber);
     }
