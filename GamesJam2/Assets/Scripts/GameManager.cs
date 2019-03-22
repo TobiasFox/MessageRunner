@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxPoints;
 
     private float[] playerScores=new float[4];
+    private int[] playerColors = new int[4];
 
     private void OnEnable()
     {
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerManager currentPlayerManager = players[i].GetComponent<PlayerManager>();
             playerScores[i] = currentPlayerManager.points/maxPoints;
+            playerColors[i] = currentPlayerManager.playerNumber;
         }
 
         SceneManager.LoadScene("GameOver");
