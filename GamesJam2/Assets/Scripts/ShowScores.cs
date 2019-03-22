@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShowScores : MonoBehaviour
 {
     [SerializeField] private Image[] scoreImages;
-    
+    [SerializeField] private CustomColors customColors;
 
     private GameManager gameManager;
     private GameObject[] sortedPlayers = new GameObject[4];
@@ -28,7 +28,7 @@ public class ShowScores : MonoBehaviour
         for(int i=0;i<scoreImages.Length;i++)
         {
             scoreImages[i].fillAmount = sortedScores[i] / gameManager.GetMaxPoints();
-            scoreImages[i].color = gameManager.GetChosenColors()[i];
+            scoreImages[i].color = customColors.colors[gameManager.GetChosenColors()[i]];
         }
     }
 

@@ -511,6 +511,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   messagesSpawn: {fileID: 0}
+  maxPoints: 0
 --- !u!4 &818966786
 Transform:
   m_ObjectHideFlags: 0
@@ -1011,6 +1012,7 @@ MonoBehaviour:
   - {fileID: 453681821}
   - {fileID: 1901043387}
   - {fileID: 1587397303}
+  customColors: {fileID: 11400000, guid: c51070124c720e149b86755e0f6e3a17, type: 2}
 --- !u!4 &1815024467
 Transform:
   m_ObjectHideFlags: 0

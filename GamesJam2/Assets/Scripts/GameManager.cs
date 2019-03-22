@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
     {
         return players;
     }
-    public Color[] GetChosenColors()
+    public int[] GetChosenColors()
     {
         return choosenColors;
     }
