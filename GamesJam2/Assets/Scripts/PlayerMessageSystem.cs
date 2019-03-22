@@ -12,15 +12,18 @@ public class PlayerMessageSystem : MonoBehaviour
     [SerializeField] private CustomColors customColors;
     [SerializeField] private GameObject messageSymbol;
     [SerializeField] private float pointsForDelivery;
+    [SerializeField] private AudioClip pickUpSound, deliverSound;
 
     private PlayerManager playerManager;
     private List<int> recieverQueue;
     private int queueCounter;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void CreateRecieverQueue(int playerCount)
@@ -43,6 +46,8 @@ public class PlayerMessageSystem : MonoBehaviour
 
     public void PickUpMessage(Vector3 message)
     {
+        audioSource.clip = pickUpSound;
+        audioSource.Play();
         isCarryingMessage = true;
         messagesSpawn.FreePosition(message);
         messageSymbol.SetActive(true);
@@ -59,6 +64,8 @@ public class PlayerMessageSystem : MonoBehaviour
 
     public void DeliverMessage()
     {
+        audioSource.clip = deliverSound;
+        audioSource.Play();
         isCarryingMessage = false;
         playerManager.AddPoint(pointsForDelivery);
         messageSymbol.SetActive(false);

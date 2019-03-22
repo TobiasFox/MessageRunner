@@ -1811,7 +1811,7 @@ PrefabInstance:
     - target: {fileID: 3422305953705332399, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.2
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 3422305953705332399, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
@@ -1821,7 +1821,7 @@ PrefabInstance:
     - target: {fileID: 3422305953705332399, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.02
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3422305953705332399, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
@@ -1863,16 +1863,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: looseEnergyPerStep
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: looseEnergyPerBash
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: pointsImage
@@ -1881,7 +1871,7 @@ PrefabInstance:
     - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: maxEnergy
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
@@ -1895,14 +1885,9 @@ PrefabInstance:
       objectReference: {fileID: 1476603650}
     - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
-      propertyPath: waitBeforeCharge
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: chargePerSecond
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: chargeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ba8f2fe38f48ff46beef6f03671de27, type: 3}
     - target: {fileID: 3646215168198544988, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: m_LocalScale.x

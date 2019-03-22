@@ -21,7 +21,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float speed = 5;
     [SerializeField] [Range(0, 3)] private int playerNumber = 0;
+    [SerializeField] private float stunTime = 1f;
+    [SerializeField] private float bashSpeed = 350f;
+    [SerializeField] private float looseEnergyPerStep;
+    [SerializeField] private float looseEnergyPerBash;
+    [SerializeField] private AudioClip bashSoundEffect;
+
     private Rigidbody rb;
+    private AudioSource audioSource;
     private string horizontalInputString;
     private string verticalInputString;
     private string moveDown;
@@ -32,10 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float yValue = 0;
     private BashZone bashArea;
     private bool isStunned = false;
-    [SerializeField] private float stunTime = 1f;
-    [SerializeField] private float bashSpeed = 350f;
-    [SerializeField] private float looseEnergyPerStep;
-    [SerializeField] private float looseEnergyPerBash;
+    
     private Quaternion viewingDirection;
     private PlayerManager playerManager;
 
@@ -43,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerManager = GetComponent<PlayerManager>();
         bashArea = GetComponentInChildren<BashZone>();
+        audioSource = GetComponent<AudioSource>();
 
         rb = GetComponent<Rigidbody>();
         horizontalInputString = "Horizontal_P" + playerNumber;
@@ -111,6 +116,8 @@ public class PlayerMovement : MonoBehaviour
                 otherRB.AddForce(transform.forward * bashSpeed);
             }
             playerManager.energy -= looseEnergyPerBash;
+            audioSource.clip = bashSoundEffect;
+            audioSource.Play();
         }
     }
 
