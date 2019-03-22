@@ -77,7 +77,8 @@ public class PlayerChooser : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            foreach (var chooser in playerChoosers)
+            var list = new List<PlayerChooser>(playerChoosers);
+            foreach (var chooser in list)
             {
                 chooser.SubmitColor();
             }
