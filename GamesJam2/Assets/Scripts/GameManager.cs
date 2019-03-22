@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private static GameObject INSTANCE;
 
     [SerializeField] private GameObject[] players = new GameObject[4];
-    private Color[] choosenColors = new Color[4];
+    private int[] choosenColors = new int[4];
     [SerializeField] private MessagesSpawn messagesSpawn;
     [SerializeField] private float maxPoints;
 
@@ -40,9 +40,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void SetPlayer(int player, Color color)
+    public void SetPlayer(int player, int colorNr)
     {
-        choosenColors[player] = color;
+        choosenColors[player] = colorNr;
     }
 
     public void StartGame()
@@ -62,10 +62,10 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < choosenColors.Length; i++)
         {
-            players[i].GetComponent<PlayerManager>().SetPlayerNumber(i);
+            players[i].GetComponent<PlayerManager>().SetPlayerNumber(choosenColors[i]);
             players[i].GetComponent<PlayerMessageSystem>().CreateRecieverQueue(players.Length);
             messagesSpawn.players[i] = players[i].transform;
-            messagesSpawn.SpawnMessage((CustomColors.Colors)i);
+            messagesSpawn.SpawnMessage((CustomColors.Colors)choosenColors[i]);
         }
 
         //for (int i = 0; i < System.Enum.GetValues(typeof(CustomColors.Colors)).Length; i++)

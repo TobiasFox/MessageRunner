@@ -71,19 +71,22 @@ public class PlayerChooser : MonoBehaviour
 
         if (Input.GetButtonDown(fire1))
         {
-            submitColor();
+            SubmitColor();
         }
 
     }
 
-    private void submitColor()
+    private void SubmitColor()
     {
         isReady = true;
+        var temp = (int)((CustomColors.Colors)currentColorIndex);
+        var col = (Color)colorList[temp];
+        var colorIndex = GetColorIndex(col);
         colorList.RemoveAt((int)((CustomColors.Colors)currentColorIndex));
         playerText.text += "\nReady";
-        gameManager.SetPlayer(playerNumber, definedColors.colors[currentColorIndex]);
+        gameManager.SetPlayer(playerNumber, colorIndex);
 
-        if (choosenNumbers.Count >= 4)
+        if (colorList.Count == 0)
         {
             loader.ShowLoadedScene();
             return;
@@ -96,12 +99,29 @@ public class PlayerChooser : MonoBehaviour
         }
     }
 
+    private int GetColorIndex(Color color)
+    {
+        for (int i = 0; i < definedColors.colors.Length; i++)
+        {
+            if (definedColors.colors[i].Equals(color))
+            {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     private void UpdateChooseSelection(int selectedIndex)
     {
+
         if (selectedIndex == currentColorIndex)
         {
-            currentColorIndex = Random.Range(0, colorList.Count);
+            currentColorIndex = UnityEngine.Random.Range(0, colorList.Count);
             playerImage.color = (Color)colorList[currentColorIndex];
+        }
+        else if (currentColorIndex > selectedIndex)
+        {
+            currentColorIndex = currentColorIndex == 0 ? 0 : currentColorIndex - 1;
         }
     }
 
@@ -118,7 +138,6 @@ public class PlayerChooser : MonoBehaviour
         }
         else if (moveLeftRight < 0)
         {
-
             currentColorIndex = currentColorIndex == 0 ? currentColorIndex = colorList.Count - 1 : currentColorIndex - 1;
             playerImage.color = (Color)colorList[currentColorIndex];
             readyForNextInput = Time.time + timeInterval;
