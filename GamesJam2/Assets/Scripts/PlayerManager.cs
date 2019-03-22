@@ -23,23 +23,23 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        playerMovement=GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
         energyParticleSystem = GetComponentInChildren<ParticleSystem>();
         startPlayerLayer = LayerMask.NameToLayer("Blue");
 
         _energy = maxEnergy;
     }
-    
+
     public void SetPlayerNumber(int number)
     {
         playerNumber = number;
-        playerMovement.PlayerNumber = number;
+        //playerMovement.PlayerNumber = number;
         Renderer rend = GetComponent<Renderer>();           //color of player
         rend.material.color = customColors.colors[number];
         pointsImage.color = customColors.colors[number];    //color of points
         var particleMain = energyParticleSystem.main;       //color of energy particle system
         particleMain.startColor = customColors.colors[number];
-        
+
         gameObject.layer = startPlayerLayer + number;
     }
 
@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
         this.points += points;
         pointsImage.fillAmount = (this.points / maxPoints);
 
-        if(this.points>=maxPoints)
+        if (this.points >= maxPoints)
         {
             Debug.Log(gameObject + " wins!!");
             OnWin();
@@ -67,7 +67,7 @@ public class PlayerManager : MonoBehaviour
             if (_energy < 0) _energy = 0;
             else if (_energy > maxEnergy) _energy = maxEnergy;
             var particleMain = energyParticleSystem.main;
-            particleMain.startColor = new Color(customColors.colors[playerNumber].r, customColors.colors[playerNumber].g, customColors.colors[playerNumber].b, (_energy/maxEnergy));
+            particleMain.startColor = new Color(customColors.colors[playerNumber].r, customColors.colors[playerNumber].g, customColors.colors[playerNumber].b, (_energy / maxEnergy));
         }
     }
 }

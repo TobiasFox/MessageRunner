@@ -20,7 +20,7 @@ public class PlayerMessageSystem : MonoBehaviour
     private AudioSource audioSource;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerManager = GetComponent<PlayerManager>();
         audioSource = GetComponent<AudioSource>();
