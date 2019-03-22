@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +8,7 @@ public class PlayerChooser : MonoBehaviour
 {
     private static ArrayList colorList;
     private static ArrayList choosenNumbers = ArrayList.Synchronized(new ArrayList());
+    private static List<PlayerChooser> playerChoosers = new List<PlayerChooser>();
 
     private Image playerImage;
     private string xAxis;
@@ -21,16 +21,21 @@ public class PlayerChooser : MonoBehaviour
     private float readyForNextInput = 0;
     private Text playerText;
     private bool isReady = false;
+    private GameManager gameManager;
+    private SceneLoader loader;
 
-    void Awake()
+    void Start()
     {
         playerImage = GetComponent<Image>();
+        gameManager = FindObjectOfType<GameManager>();
+        loader = FindObjectOfType<SceneLoader>();
         playerText = transform.GetChild(1)?.GetComponent<Text>();
         xAxis = "Horizontal_P" + playerNumber;
         fire1 = "Fire1_P" + playerNumber;
 
         currentColorIndex = playerNumber;
         playerImage.color = definedColors.colors[currentColorIndex];
+        playerChoosers.Add(this);
 
         if (colorList == null)
         {
@@ -39,7 +44,10 @@ public class PlayerChooser : MonoBehaviour
             {
                 colorList.Add(definedColors.colors[i]);
             }
+
+            loader.StartAsyncSceneLoading("CarinaScene");
         }
+
     }
 
     void Update()
@@ -63,24 +71,38 @@ public class PlayerChooser : MonoBehaviour
 
         if (Input.GetButtonDown(fire1))
         {
-            if (choosenNumbers.Contains(currentColorIndex))
-            {
-                Debug.Log("choose another color");
-            }
-            else
-            {
-                choosenNumbers.Add(currentColorIndex);
-                isReady = true;
-                Debug.Log("set color " + definedColors.colors[currentColorIndex] + ", for Player " + playerNumber);
-                colorList.Remove(definedColors.colors[currentColorIndex]);
-                playerText.text += "\nReady";
-                if (choosenNumbers.Count >= 3)
-                {
-                    //startGame
-                }
-            }
+            submitColor();
         }
 
+    }
+
+    private void submitColor()
+    {
+        isReady = true;
+        colorList.RemoveAt((int)((CustomColors.Colors)currentColorIndex));
+        playerText.text += "\nReady";
+        gameManager.SetPlayer(playerNumber, definedColors.colors[currentColorIndex]);
+
+        if (choosenNumbers.Count >= 4)
+        {
+            loader.ShowLoadedScene();
+            return;
+        }
+
+        playerChoosers.Remove(this);
+        foreach (var chooser in playerChoosers)
+        {
+            chooser.UpdateChooseSelection(currentColorIndex);
+        }
+    }
+
+    private void UpdateChooseSelection(int selectedIndex)
+    {
+        if (selectedIndex == currentColorIndex)
+        {
+            currentColorIndex = Random.Range(0, colorList.Count);
+            playerImage.color = (Color)colorList[currentColorIndex];
+        }
     }
 
     private void PreviewNextColor()
@@ -96,6 +118,7 @@ public class PlayerChooser : MonoBehaviour
         }
         else if (moveLeftRight < 0)
         {
+
             currentColorIndex = currentColorIndex == 0 ? currentColorIndex = colorList.Count - 1 : currentColorIndex - 1;
             playerImage.color = (Color)colorList[currentColorIndex];
             readyForNextInput = Time.time + timeInterval;
