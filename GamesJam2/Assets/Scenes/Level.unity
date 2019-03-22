@@ -6174,11 +6174,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067212425}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.4124998, z: 1}
-  m_Center: {x: 0, y: -0.29374915, z: 0}
+  m_Size: {x: 1, y: 0.03865164, z: 0.48578325}
+  m_Center: {x: 0, y: -0.48067275, z: 0.25710756}
 --- !u!1 &2092820690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 24152144389334686, guid: 4343af36a44663b4d999d0c209e6ee2c,

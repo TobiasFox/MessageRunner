@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CarinaScene.unity
     guid: e30a70081947f36468d93d740a7cebda
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 01561ea339b019c4385c389717ea53d8
   m_configObjects: {}

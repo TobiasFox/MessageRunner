@@ -179,11 +179,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: playerNumber
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: debugPlayerNum
@@ -199,6 +194,11 @@ PrefabInstance:
       propertyPath: pointsImage
       value: 
       objectReference: {fileID: 1281308012}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: playerNumber
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -485,11 +485,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: playerNumber
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: debugPlayerNum
@@ -505,6 +500,11 @@ PrefabInstance:
       propertyPath: pointsImage
       value: 
       objectReference: {fileID: 1171106027}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -588,6 +588,7 @@ MonoBehaviour:
   - {fileID: 1334893296}
   - {fileID: 1174459332}
   messagesSpawn: {fileID: 1476603650}
+  maxPoints: 3
 --- !u!4 &557542776
 Transform:
   m_ObjectHideFlags: 0
@@ -1873,6 +1874,11 @@ PrefabInstance:
       propertyPath: maxEnergy
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: maxPoints
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -2072,11 +2078,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: playerNumber
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: debugPlayerNum
@@ -2092,6 +2093,11 @@ PrefabInstance:
       propertyPath: pointsImage
       value: 
       objectReference: {fileID: 1124716044}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -2203,6 +2209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PowerStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802838108783806821, guid: 8776cbe9a01f8834699fc379d2265b1e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5802838108783806809, guid: 8776cbe9a01f8834699fc379d2265b1e,
         type: 3}

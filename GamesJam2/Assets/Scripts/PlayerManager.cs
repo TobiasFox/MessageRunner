@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public delegate void Win();
-    public event Win OnWin;
+    public static event Win OnWin;
 
     public int playerNumber { get; private set; }
     public float points { get; set; }
 
-    [SerializeField] private CustomColors customColors;
     [SerializeField] private float maxPoints;
+    [SerializeField] private CustomColors customColors;
     [SerializeField] private Image pointsImage;
     [SerializeField] private float maxEnergy;
 
