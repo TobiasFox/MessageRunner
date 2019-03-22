@@ -23,6 +23,7 @@ public class PlayerChooser : MonoBehaviour
     private bool isReady = false;
     private GameManager gameManager;
     private SceneLoader loader;
+    private bool updateOther = true;
 
     void Start()
     {
@@ -72,6 +73,14 @@ public class PlayerChooser : MonoBehaviour
         if (Input.GetButtonDown(fire1))
         {
             SubmitColor();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            foreach (var chooser in playerChoosers)
+            {
+                chooser.SubmitColor();
+            }
         }
 
     }
