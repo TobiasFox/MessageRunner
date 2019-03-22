@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         float inputZ = Input.GetAxis(verticalInputString);
 
         yValue = moveHorizontal ? GetYValueInput() : 0;
+        //Debug.Log("Y: " + yValue);
 
         var movement = new Vector3(inputX, yValue, inputZ);
 
@@ -140,12 +141,12 @@ public class PlayerMovement : MonoBehaviour
         return yValue;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
             moveHorizontal = true;
-            //Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
+            Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
 
@@ -154,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag.Equals("HorizontalMovementTrigger"))
         {
             moveHorizontal = false;
-            //Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
+            Debug.Log("player: " + playerNumber + "moveHorizontal: " + moveHorizontal);
         }
     }
 

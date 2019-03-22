@@ -412,7 +412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262630203}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0.62361884, y: 3.015851, z: -1.852745}
+  m_LocalPosition: {x: 12.6, y: 3.015851, z: 5.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603247925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1911,7 +1911,7 @@ PrefabInstance:
     - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.10449934
+      value: 0.105882406
       objectReference: {fileID: 0}
     - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
@@ -2272,11 +2272,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerPoints
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
