@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/ChoosePlayerScene.unity
     guid: ed4652889bcdb6848972e58d6680fd14
   - enabled: 1
-    path: Assets/Scenes/CarinaScene.unity
-    guid: e30a70081947f36468d93d740a7cebda
+    path: Assets/Scenes/Level.unity
+    guid: f85ffba500c9e00438764aed3cbaf110
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 01561ea339b019c4385c389717ea53d8

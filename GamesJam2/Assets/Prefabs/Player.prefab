@@ -206,9 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customColors: {fileID: 11400000, guid: c51070124c720e149b86755e0f6e3a17, type: 2}
-  maxPoints: 10
   pointsImage: {fileID: 0}
-  maxEnergy: 50
+  maxEnergy: Infinity
 --- !u!114 &7428990902125387282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitBeforeCharge: 1
   chargePerSecond: 10
+  chargeClip: {fileID: 0}
 --- !u!82 &307256309187184148
 AudioSource:
   m_ObjectHideFlags: 0
