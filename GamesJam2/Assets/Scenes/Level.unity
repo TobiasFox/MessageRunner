@@ -1403,6 +1403,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -1706,11 +1711,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoints (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1815,6 +1815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfd6a40260b27846a1bd4fdd3f6367b, type: 3}
@@ -3152,11 +3157,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoints (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3261,6 +3261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfd6a40260b27846a1bd4fdd3f6367b, type: 3}
@@ -4680,6 +4685,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -8350,11 +8360,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoints (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8459,6 +8464,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfd6a40260b27846a1bd4fdd3f6367b, type: 3}
@@ -8655,6 +8665,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -12805,6 +12820,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
