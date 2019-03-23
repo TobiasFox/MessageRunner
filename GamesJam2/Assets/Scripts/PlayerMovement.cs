@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float looseEnergyPerStep;
     [SerializeField] private float looseEnergyPerBash;
     [SerializeField] private AudioClip bashSoundEffect;
+    [SerializeField] private Camera mainCamera;
 
     private Rigidbody rb;
     private AudioSource audioSource;
@@ -82,16 +83,17 @@ public class PlayerMovement : MonoBehaviour
         float inputX = Input.GetAxis(horizontalInputString);
         float inputZ = Input.GetAxis(verticalInputString);
 
-        //yValue = moveHorizontal ? GetYValueInput() : 0;
-        //Debug.Log("Y: " + yValue);
         yValue = GetYValueInput();
 
-        var movement = new Vector3(inputX, yValue, inputZ);
+        float verticalPush = 1f;
+        var movement2 = new Vector3(mainCamera.transform.forward.x * verticalPush * inputZ + mainCamera.transform.right.x * inputX,
+            yValue,
+            mainCamera.transform.forward.x * verticalPush * inputZ + mainCamera.transform.right.x * inputZ);
 
-        if (movement.magnitude > EPSILON)
+        if (movement2.magnitude > EPSILON)
         {
-            rb.velocity = movement * speed;
-            viewingDirection = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 1f);
+            rb.velocity = movement2 * speed;
+            viewingDirection = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement2), 1f);
             transform.rotation = viewingDirection;
             playerManager.energy -= looseEnergyPerStep;
         }
