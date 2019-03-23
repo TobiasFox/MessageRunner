@@ -193,6 +193,7 @@ MonoBehaviour:
   looseEnergyPerStep: 0.1
   looseEnergyPerBash: 2
   bashSoundEffect: {fileID: 8300000, guid: 54b30b0e42f8b014a93e73da3fbb6e56, type: 3}
+  mainCamera: {fileID: 0}
 --- !u!114 &7691445323903470627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customColors: {fileID: 11400000, guid: c51070124c720e149b86755e0f6e3a17, type: 2}
   pointsImage: {fileID: 0}
-  maxEnergy: Infinity
+  maxEnergy: 500
 --- !u!114 &7428990902125387282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5094,7 +5095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6674451712374750961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.995, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3422305953705332399}
