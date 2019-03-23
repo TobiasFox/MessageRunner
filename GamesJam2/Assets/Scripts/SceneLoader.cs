@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private AsyncOperation asyncOperation;
-    [SerializeField] private string sceneToLoad = "";
+    [SerializeField] private int sceneToLoad;
     private AudioSource startGameAudioSource;
     private AudioSource backgroundMusic;
     [SerializeField] private float startSoundLength;
@@ -36,8 +36,7 @@ public class SceneLoader : MonoBehaviour
         }
         else if(scene.name.Equals("GameOver"))
         {
-            StartAsyncSceneLoading("ChoosePlayerScene");
-            isGameOverScene = true;
+            StartCoroutine("StartCountdown", 1f);
         }
     }
 
@@ -49,14 +48,14 @@ public class SceneLoader : MonoBehaviour
         StartAsyncSceneLoading(sceneToLoad);
     }
 
-    public void StartAsyncSceneLoading(string sceneName)
+    public void StartAsyncSceneLoading(int sceneIndex)
     {
-        StartCoroutine(LoadScene(sceneName));
+        StartCoroutine(LoadScene(sceneIndex));
     }
 
-    private IEnumerator LoadScene(string sceneName)
+    private IEnumerator LoadScene(int sceneIndex)
     {
-        asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
         asyncOperation.allowSceneActivation = false;
 
         yield return null;
@@ -90,13 +89,21 @@ public class SceneLoader : MonoBehaviour
         }
         else if (isGameOverScene && Input.anyKeyDown)
         {
-            asyncOperation.allowSceneActivation = true;
             isGameOverScene = false;
+            SceneManager.LoadScene(1);
+            //asyncOperation.allowSceneActivation = true;
         }
     }
 
     private void OnApplicationQuit()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private IEnumerator StartCountdown(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        isGameOverScene = true;
+        //StartAsyncSceneLoading("ChoosePlayerScene");
     }
 }

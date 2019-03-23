@@ -683,8 +683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b629666fd8d8ff941af34c5ba2c7c127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: ChoosePlayerScene
-  startSoundLength: 4.176
+  sceneToLoad: 1
+  startSoundLength: 0.5
 --- !u!4 &2024880118
 Transform:
   m_ObjectHideFlags: 0
@@ -709,7 +709,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ff70cf55f54b45c4e9633b315472582a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c1bbe991457b3894eb050bb826d11d2f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
