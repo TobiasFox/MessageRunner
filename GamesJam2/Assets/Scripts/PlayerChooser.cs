@@ -23,7 +23,6 @@ public class PlayerChooser : MonoBehaviour
     private bool isReady = false;
     private GameManager gameManager;
     private SceneLoader loader;
-    private bool updateOther = true;
 
     void Start()
     {

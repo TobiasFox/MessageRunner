@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool EnableInput { get; set; } = true;
+
     [SerializeField] private float speed = 5;
     [SerializeField] [Range(0, 3)] private int playerNumber = 0;
     [SerializeField] private float stunTime = 1f;
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private float yValue = 0;
     private BashZone bashArea;
     private bool isStunned = false;
-    
+
     private Quaternion viewingDirection;
     private PlayerManager playerManager;
 
@@ -60,6 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!EnableInput)
+        {
+            StopMovement();
+            return;
+        }
+
         if (isStunned)
         {
             return;
@@ -89,14 +97,19 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            transform.rotation = viewingDirection;
-            rb.velocity = Vector3.zero;
+            StopMovement();
         }
 
         if (Input.GetButtonDown(fire1))
         {
             BashPlayers();
         }
+    }
+
+    private void StopMovement()
+    {
+        transform.rotation = viewingDirection;
+        rb.velocity = Vector3.zero;
     }
 
     private void BashPlayers()
