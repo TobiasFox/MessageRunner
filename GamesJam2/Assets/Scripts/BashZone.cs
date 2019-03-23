@@ -18,7 +18,6 @@ public class BashZone : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             players[playerCount++] = other.gameObject;
-            Debug.Log("added " + other.name);
         }
     }
 
@@ -32,7 +31,6 @@ public class BashZone : MonoBehaviour
                 {
                     playerCount--;
                     players[i] = null;
-                    Debug.Log("remove " + other.name);
                 }
             }
         }
