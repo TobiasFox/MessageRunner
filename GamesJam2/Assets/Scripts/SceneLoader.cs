@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,8 +11,11 @@ public class SceneLoader : MonoBehaviour
     private AudioSource startGameAudioSource;
     private AudioSource backgroundMusic;
     [SerializeField] private float startSoundLength;
+    [SerializeField] private GameObject introOverlay;
+    [SerializeField] private float waitTime;
     private GameObject INSTANCE;
     private bool isTitleScene = true;
+    private bool isIntroOverlay = false;
     private bool isGameOverScene = false;
     private int currentLoadedSceneIndex;
 
@@ -84,15 +88,24 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
-        if (!isTitleScene && !isGameOverScene)
+        if (!isTitleScene && !isGameOverScene && !isIntroOverlay)
         {
             return;
         }
 
+
         if (isTitleScene && Input.anyKey)
         {
-            ShowLoadedScene();
             isTitleScene = false;
+            introOverlay.SetActive(true);
+            StartCoroutine(wait());
+        }
+        else if (isIntroOverlay && Input.anyKey)
+        {
+            ShowLoadedScene();
+            isIntroOverlay = false;
+
+            ShowLoadedScene();
         }
         else if (isGameOverScene && Input.anyKeyDown)
         {
@@ -100,6 +113,12 @@ public class SceneLoader : MonoBehaviour
             SceneManager.LoadScene(1);
             //asyncOperation.allowSceneActivation = true;
         }
+    }
+
+    private IEnumerator wait()
+    {
+        yield return new WaitForSeconds(waitTime);
+        isIntroOverlay = true;
     }
 
     private void OnApplicationQuit()
@@ -111,6 +130,5 @@ public class SceneLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         isGameOverScene = true;
-        //StartAsyncSceneLoading("ChoosePlayerScene");
     }
 }
