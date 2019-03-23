@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private float startSoundLength;
     private GameObject INSTANCE;
     private bool isTitleScene = true;
+    private bool isGameOverScene = false;
 
     private void Awake()
     {
@@ -32,6 +33,11 @@ public class SceneLoader : MonoBehaviour
         if (scene.name.Equals("CarinaScene"))
         {
             FindObjectOfType<GameManager>()?.StartGame();
+        }
+        else if(scene.name.Equals("GameOver"))
+        {
+            StartAsyncSceneLoading("ChoosePlayerScene");
+            isGameOverScene = true;
         }
     }
 
@@ -72,15 +78,20 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
-        if (!isTitleScene)
+        if (!isTitleScene && !isGameOverScene)
         {
             return;
         }
 
-        if (Input.anyKey)
+        if (isTitleScene && Input.anyKey)
         {
             StartCoroutine(StartGame());
             isTitleScene = false;
+        }
+        else if (isGameOverScene && Input.anyKey)
+        {
+            asyncOperation.allowSceneActivation = true;
+            isGameOverScene = false;
         }
     }
 

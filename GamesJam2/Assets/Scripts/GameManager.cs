@@ -1,15 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+
     private static GameObject INSTANCE;
 
     [SerializeField] private GameObject[] players = new GameObject[4];
     private int[] choosenColors = new int[4];
     [SerializeField] private MessagesSpawn messagesSpawn;
+    [SerializeField] private float maxPoints;
 
+    private float[] playerScores=new float[4];
+    private int[] playerColors = new int[4];
+
+    private void OnEnable()
+    {
+        PlayerManager.OnWin += CollectPlayerScores;
+    }
+    private void OnDisable()
+    {
+        PlayerManager.OnWin -= CollectPlayerScores;
+    }
 
     private void Awake()
     {
@@ -22,6 +37,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        
     }
 
     public void SetPlayer(int player, int colorNr)
@@ -71,4 +88,33 @@ public class GameManager : MonoBehaviour
         //}
     }
 
+    private void CollectPlayerScores()
+    {
+        for(int i=0;i<players.Length;i++)
+        {
+            PlayerManager currentPlayerManager = players[i].GetComponent<PlayerManager>();
+            playerScores[i] = currentPlayerManager.points/maxPoints;
+            playerColors[i] = currentPlayerManager.playerNumber;
+        }
+
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public GameObject[] GetPlayers()
+    {
+        return players;
+    }
+    public int[] GetChosenColors()
+    {
+        return choosenColors;
+    }
+    public float[] GetScores()
+    {
+        return playerScores;
+    }
+
+    public float GetMaxPoints()
+    {
+        return maxPoints;
+    }
 }

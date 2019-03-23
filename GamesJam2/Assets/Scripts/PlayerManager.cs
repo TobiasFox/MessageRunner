@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public delegate void Win();
-    public event Win OnWin;
+    public static event Win OnWin;
 
     public int playerNumber { get; private set; }
     public float points { get; set; }
 
+    //[SerializeField] private float maxPoints;
     [SerializeField] private CustomColors customColors;
-    [SerializeField] private float maxPoints;
     [SerializeField] private Image pointsImage;
     [SerializeField] private float maxEnergy;
 
+    private GameManager gameManager;
     private PlayerMovement playerMovement;
     private int startPlayerLayer;
     private ParticleSystem energyParticleSystem;
@@ -26,6 +27,7 @@ public class PlayerManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         energyParticleSystem = GetComponentInChildren<ParticleSystem>();
         startPlayerLayer = LayerMask.NameToLayer("Blue");
+        gameManager = FindObjectOfType<GameManager>();
 
         _energy = maxEnergy;
     }
@@ -46,11 +48,10 @@ public class PlayerManager : MonoBehaviour
     public void AddPoint(float points)
     {
         this.points += points;
-        pointsImage.fillAmount = (this.points / maxPoints);
+        pointsImage.fillAmount = (this.points / gameManager.GetMaxPoints());
 
-        if (this.points >= maxPoints)
+        if (this.points >= gameManager.GetMaxPoints())
         {
-            Debug.Log(gameObject + " wins!!");
             OnWin();
         }
     }
