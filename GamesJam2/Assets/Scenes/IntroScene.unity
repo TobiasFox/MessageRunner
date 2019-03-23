@@ -762,7 +762,7 @@ MonoBehaviour:
   sceneToLoad: 1
   startSoundLength: 4.176
   introOverlay: {fileID: 176157982}
-  waitTime: 3
+  waitTime: 2
 --- !u!4 &2024880118
 Transform:
   m_ObjectHideFlags: 0
