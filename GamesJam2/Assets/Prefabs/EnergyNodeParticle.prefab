@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 119024999}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.023, y: 0.116, z: 0.047}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0.023, y: 0.027, z: -0.047}
+  m_LocalScale: {x: 1.5488873, y: 1.5488873, z: 1.5488873}
   m_Children: []
   m_Father: {fileID: 827834171}
   m_RootOrder: 0
@@ -4639,7 +4639,7 @@ ParticleSystem:
 --- !u!199 &119025001
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4707,9 +4707,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 827834171}
+  - component: {fileID: 2258358398228638792}
   m_Layer: 0
-  m_Name: Particles
-  m_TagString: Untagged
+  m_Name: EnergyNodeParticle
+  m_TagString: PowerStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4731,6 +4732,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2258358398228638792
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827834170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2079413330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4757,8 +4771,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079413330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.022999763, y: 0.116000175, z: 0.04699993}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0.023, y: 0.027, z: -0.047}
+  m_LocalScale: {x: 1.5488873, y: 1.5488873, z: 1.5488873}
   m_Children: []
   m_Father: {fileID: 827834171}
   m_RootOrder: 1
@@ -9370,7 +9384,7 @@ ParticleSystem:
 --- !u!199 &2079413332
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -9455,8 +9469,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3175574990292757307}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.022999763, y: 0.116000175, z: 0.04699993}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0.023, y: 0.027, z: -0.047}
+  m_LocalScale: {x: 1.5488873, y: 1.5488873, z: 1.5488873}
   m_Children: []
   m_Father: {fileID: 827834171}
   m_RootOrder: 2
@@ -14068,7 +14082,7 @@ ParticleSystem:
 --- !u!199 &8206769656403756646
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
