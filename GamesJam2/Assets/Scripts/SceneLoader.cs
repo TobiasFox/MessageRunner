@@ -13,6 +13,7 @@ public class SceneLoader : MonoBehaviour
     private GameObject INSTANCE;
     private bool isTitleScene = true;
     private bool isGameOverScene = false;
+    private int currentLoadedSceneIndex;
 
     private void Awake()
     {
@@ -28,18 +29,6 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name.Equals("CarinaScene"))
-        {
-            FindObjectOfType<GameManager>()?.StartGame();
-        }
-        else if(scene.name.Equals("GameOver"))
-        {
-            StartCoroutine("StartCountdown", 1f);
-        }
-    }
-
     private void Start()
     {
         startGameAudioSource = GetComponent<AudioSource>();
@@ -48,8 +37,21 @@ public class SceneLoader : MonoBehaviour
         StartAsyncSceneLoading(sceneToLoad);
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 2)
+        {
+            FindObjectOfType<GameManager>()?.StartGame();
+        }
+        else if (scene.buildIndex == 3)
+        {
+            StartCoroutine("StartCountdown", 1f);
+        }
+    }
+
     public void StartAsyncSceneLoading(int sceneIndex)
     {
+        currentLoadedSceneIndex = sceneIndex;
         StartCoroutine(LoadScene(sceneIndex));
     }
 
@@ -63,6 +65,11 @@ public class SceneLoader : MonoBehaviour
 
     public void ShowLoadedScene()
     {
+        if (currentLoadedSceneIndex == 2)
+        {
+            StartCoroutine(StartGame());
+            return;
+        }
         asyncOperation.allowSceneActivation = true;
     }
 
@@ -84,7 +91,7 @@ public class SceneLoader : MonoBehaviour
 
         if (isTitleScene && Input.anyKey)
         {
-            StartCoroutine(StartGame());
+            ShowLoadedScene();
             isTitleScene = false;
         }
         else if (isGameOverScene && Input.anyKeyDown)
