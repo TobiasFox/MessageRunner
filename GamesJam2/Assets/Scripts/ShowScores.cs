@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShowScores : MonoBehaviour
@@ -57,4 +58,12 @@ public class ShowScores : MonoBehaviour
 
         return highestScore;
     }
+
+    //private void Update()
+    //{
+    //    if(Input.anyKeyDown)
+    //    {
+    //        SceneManager.LoadScene("ChoosePlayer");
+    //    }
+    //}
 }
