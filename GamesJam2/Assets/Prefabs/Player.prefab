@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  playerNumber: 0
+  playerNumber: 1
   stunTime: 1
   bashSpeed: 350
   looseEnergyPerStep: 0.1
@@ -253,8 +253,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBeforeCharge: 1
-  chargePerSecond: 10
-  chargeClip: {fileID: 0}
+  chargePerSecond: 75
+  chargeClip: {fileID: 8300000, guid: 32fe7a183e40db4469ca1738610c53f4, type: 3}
 --- !u!82 &307256309187184148
 AudioSource:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1216,7 +1216,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 250
       minScalar: 10
       maxCurve:
         serializedVersion: 2

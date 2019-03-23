@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             PlayerManager currentPlayerManager = players[i].GetComponent<PlayerManager>();
-            playerScores[i] = currentPlayerManager.points / maxPoints;
+            playerScores[i] = currentPlayerManager.points;
             playerColors[i] = currentPlayerManager.playerNumber;
         }
     }
