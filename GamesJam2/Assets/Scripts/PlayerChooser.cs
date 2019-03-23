@@ -99,6 +99,7 @@ public class PlayerChooser : MonoBehaviour
         if (colorList.Count == 0)
         {
             loader.ShowLoadedScene();
+            colorList = null;
             return;
         }
 

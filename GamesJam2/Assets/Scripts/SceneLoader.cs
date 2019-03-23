@@ -88,7 +88,7 @@ public class SceneLoader : MonoBehaviour
             StartCoroutine(StartGame());
             isTitleScene = false;
         }
-        else if (isGameOverScene && Input.anyKey)
+        else if (isGameOverScene && Input.anyKeyDown)
         {
             asyncOperation.allowSceneActivation = true;
             isGameOverScene = false;
