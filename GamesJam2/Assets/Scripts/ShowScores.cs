@@ -58,12 +58,5 @@ public class ShowScores : MonoBehaviour
 
         return highestScore;
     }
-
-    //private void Update()
-    //{
-    //    if(Input.anyKeyDown)
-    //    {
-    //        SceneManager.LoadScene("ChoosePlayer");
-    //    }
-    //}
+    
 }

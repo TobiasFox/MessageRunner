@@ -46,7 +46,7 @@ public class PlayerChooser : MonoBehaviour
                 colorList.Add(definedColors.colors[i]);
             }
 
-            loader.StartAsyncSceneLoading("CarinaScene");
+            loader.StartAsyncSceneLoading(2);
         }
 
     }
@@ -96,6 +96,8 @@ public class PlayerChooser : MonoBehaviour
         playerText.text += "\nReady";
         gameManager.SetPlayer(playerNumber, colorIndex);
 
+        playerChoosers.Remove(this);
+
         if (colorList.Count == 0)
         {
             loader.ShowLoadedScene();
@@ -103,7 +105,6 @@ public class PlayerChooser : MonoBehaviour
             return;
         }
 
-        playerChoosers.Remove(this);
         foreach (var chooser in playerChoosers)
         {
             chooser.UpdateChooseSelection(currentColorIndex);
