@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class PlayerChooser : MonoBehaviour
     private static ArrayList choosenNumbers = ArrayList.Synchronized(new ArrayList());
     private static List<PlayerChooser> playerChoosers = new List<PlayerChooser>();
 
-    private Image playerImage;
+    //private Image playerImage;
+    [SerializeField] private ParticleSystem[] particleSystems;
     private string xAxis;
     private string fire1;
     private int currentColorIndex = 0;
@@ -26,7 +28,7 @@ public class PlayerChooser : MonoBehaviour
 
     void Start()
     {
-        playerImage = GetComponent<Image>();
+        //playerImage = GetComponent<Image>();
         gameManager = FindObjectOfType<GameManager>();
         loader = FindObjectOfType<SceneLoader>();
         playerText = transform.GetChild(1)?.GetComponent<Text>();
@@ -34,7 +36,8 @@ public class PlayerChooser : MonoBehaviour
         fire1 = "Fire1_P" + playerNumber;
 
         currentColorIndex = playerNumber;
-        playerImage.color = definedColors.colors[currentColorIndex];
+        particleSystems = GetComponentsInChildren<ParticleSystem>();
+        //playerImage.color = definedColors.colors[currentColorIndex];
         playerChoosers.Add(this);
 
         if (colorList == null)
@@ -48,6 +51,19 @@ public class PlayerChooser : MonoBehaviour
             loader.StartAsyncSceneLoading(2);
         }
 
+        ChangeColorOfPSystem();
+
+    }
+
+    private void ChangeColorOfPSystem()
+    {
+        foreach (var psystem in particleSystems)
+        {
+            var particleMain = psystem.main;
+            particleMain.startColor = definedColors.colors[currentColorIndex];
+        }
+        Renderer rend = GetComponent<Renderer>();           //color of player
+        rend.material.color = definedColors.colors[currentColorIndex];
     }
 
     void Update()
@@ -128,7 +144,8 @@ public class PlayerChooser : MonoBehaviour
         if (selectedIndex == currentColorIndex)
         {
             currentColorIndex = UnityEngine.Random.Range(0, colorList.Count);
-            playerImage.color = (Color)colorList[currentColorIndex];
+            ChangeColorOfPSystem();
+            //playerImage.color = (Color)colorList[currentColorIndex];
         }
         else if (currentColorIndex > selectedIndex)
         {
@@ -143,14 +160,16 @@ public class PlayerChooser : MonoBehaviour
         if (moveLeftRight > 0)
         {
             currentColorIndex = (currentColorIndex + 1) % colorList.Count;
-            playerImage.color = (Color)colorList[currentColorIndex];
+            ChangeColorOfPSystem();
+            //playerImage.color = (Color)colorList[currentColorIndex];
             isChangingColor = true;
             readyForNextInput = Time.time + timeInterval;
         }
         else if (moveLeftRight < 0)
         {
             currentColorIndex = currentColorIndex == 0 ? currentColorIndex = colorList.Count - 1 : currentColorIndex - 1;
-            playerImage.color = (Color)colorList[currentColorIndex];
+            ChangeColorOfPSystem();
+            //playerImage.color = (Color)colorList[currentColorIndex];
             readyForNextInput = Time.time + timeInterval;
             isChangingColor = true;
         }
