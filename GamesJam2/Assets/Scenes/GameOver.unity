@@ -1059,6 +1059,7 @@ MonoBehaviour:
   - {fileID: 1901043387}
   - {fileID: 1587397303}
   customColors: {fileID: 11400000, guid: c51070124c720e149b86755e0f6e3a17, type: 2}
+  text: {fileID: 2046803408}
 --- !u!4 &1815024467
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,7 +1307,7 @@ GameObject:
   - component: {fileID: 2046803409}
   - component: {fileID: 2046803408}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: winText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
