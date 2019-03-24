@@ -70,8 +70,20 @@ public class PlayerManager : MonoBehaviour
         set
         {
             _energy = value;
-            if (_energy < 0) _energy = 0;
-            else if (_energy > maxEnergy) _energy = maxEnergy;
+            if (_energy < 0)
+            {
+                _energy = 0;
+                gameManager.hasPlayerEnergy[gameObject] = false;
+                gameManager.CheckGameOver();
+            }
+            else
+            {
+                gameManager.hasPlayerEnergy[gameObject] = true;
+                if (_energy > maxEnergy)
+                {
+                    _energy = maxEnergy;
+                }
+            }
             var particleMain = energyParticleSystem.main;
             particleMain.startColor = new Color(customColors.colors[playerNumber].r, customColors.colors[playerNumber].g, customColors.colors[playerNumber].b, (_energy / maxEnergy));
         }

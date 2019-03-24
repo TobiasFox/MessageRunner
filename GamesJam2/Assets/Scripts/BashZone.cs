@@ -17,7 +17,7 @@ public class BashZone : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            players[playerCount++] = other.gameObject;
+            players[playerCount++] = other.transform.parent.gameObject;
         }
     }
 
@@ -27,7 +27,7 @@ public class BashZone : MonoBehaviour
         {
             for (int i = 0; i < players.Length; i++)
             {
-                if (players[i] == other.gameObject)
+                if (players[i] == other.transform.parent.gameObject)
                 {
                     playerCount--;
                     players[i] = null;

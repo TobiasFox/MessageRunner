@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
 {
     private static GameObject INSTANCE;
 
+    public Dictionary<GameObject, bool> hasPlayerEnergy { get; set; }
+
     [SerializeField] private GameObject[] players = new GameObject[4];
-    private int[] choosenColors = new int[4];
     [SerializeField] private MessagesSpawn messagesSpawn;
     [SerializeField] private float maxPoints;
-    private AudioSource source;
 
+    private int[] choosenColors = new int[4];
+    private AudioSource source;
     private float[] playerScores = new float[4];
     private int[] playerColors = new int[4];
 
@@ -36,7 +38,10 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        hasPlayerEnergy = new Dictionary<GameObject, bool>();
     }
 
     public void SetPlayer(int player, int colorNr)
@@ -70,6 +75,11 @@ public class GameManager : MonoBehaviour
         {
             messagesSpawn.SpawnMessage((CustomColors.Colors)i);
         }
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            hasPlayerEnergy.Add(players[i], true);
+        }
     }
 
     private IEnumerator ChangeToGameOverScene()
@@ -91,6 +101,22 @@ public class GameManager : MonoBehaviour
             PlayerManager currentPlayerManager = players[i].GetComponent<PlayerManager>();
             playerScores[i] = currentPlayerManager.points;
             playerColors[i] = currentPlayerManager.playerNumber;
+        }
+    }
+
+    public void CheckGameOver()
+    {
+        int count = 0;
+        foreach(bool hasEnergy in hasPlayerEnergy.Values)
+        {
+            if(!hasEnergy)
+            {
+                count++;
+            }
+        }
+        if(count==hasPlayerEnergy.Count)
+        {
+            CollectPlayerScores();
         }
     }
 
