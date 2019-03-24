@@ -1329,8 +1329,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -475.65, y: 651}
-  m_SizeDelta: {x: 1051.3, y: 151.4}
+  m_AnchoredPosition: {x: -334.8, y: 652.4}
+  m_SizeDelta: {x: 1485.7, y: 145.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046803408
 MonoBehaviour:
@@ -1359,13 +1359,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Over
+  m_Text: Blue, Yellow, Purple, Green win!
 --- !u!222 &2046803409
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (playerManager.energy <= 0)
+        else if (playerManager.energy <= 0)
         {
             transform.rotation = viewingDirection;
             rb.velocity = Vector3.zero;
