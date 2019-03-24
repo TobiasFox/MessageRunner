@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     private AudioSource backgroundMusic;
     [SerializeField] private float startSoundLength;
     [SerializeField] private GameObject introOverlay;
+    [SerializeField] private GameObject title;
     [SerializeField] private float waitTime;
     private GameObject INSTANCE;
     private bool isTitleScene = true;
@@ -98,6 +99,7 @@ public class SceneLoader : MonoBehaviour
         {
             isTitleScene = false;
             introOverlay.SetActive(true);
+            title.SetActive(false);
             StartCoroutine(wait());
         }
         else if (isIntroOverlay && Input.anyKey)
