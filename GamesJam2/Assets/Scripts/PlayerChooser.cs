@@ -31,7 +31,7 @@ public class PlayerChooser : MonoBehaviour
         //playerImage = GetComponent<Image>();
         gameManager = FindObjectOfType<GameManager>();
         loader = FindObjectOfType<SceneLoader>();
-        playerText = transform.GetChild(1)?.GetComponent<Text>();
+        playerText = GetComponentsInChildren<Text>()[1];
         xAxis = "Horizontal_P" + playerNumber;
         fire1 = "Fire1_P" + playerNumber;
 
