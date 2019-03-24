@@ -80,10 +80,10 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator StartGame()
     {
-        backgroundMusic.volume = 0.5f;
+        //backgroundMusic.volume = 0.5f;
         startGameAudioSource.Play();
         yield return new WaitForSeconds(startSoundLength);
-        backgroundMusic.volume = 1f;
+        //backgroundMusic.volume = 1f;
         asyncOperation.allowSceneActivation = true;
     }
 
