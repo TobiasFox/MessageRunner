@@ -155,9 +155,9 @@ SphereCollider:
   m_GameObject: {fileID: 3422305953705332393}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3422305953705332395
 Rigidbody:
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1485639a91de4f4bbf034a3b0c2ccf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   playerNumber: 0
   stunTime: 1
   bashSpeed: 350
@@ -5101,7 +5101,7 @@ Transform:
   m_GameObject: {fileID: 6674451712374750961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1.5}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3422305953705332399}
   m_RootOrder: 0
@@ -5454,6 +5454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.0217
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526227454167008146, guid: 3a634f1f30d513c49aba0b5bcdc97b72,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a634f1f30d513c49aba0b5bcdc97b72, type: 3}

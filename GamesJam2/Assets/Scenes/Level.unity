@@ -8741,6 +8741,26 @@ PrefabInstance:
       propertyPath: messagesSpawn
       value: 
       objectReference: {fileID: 362827875}
+    - target: {fileID: 3422305953705332396, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422305953705332396, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422305953705332396, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5526227453920284755, guid: 5e1d708064e69a742824c42482c297b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e1d708064e69a742824c42482c297b6, type: 3}
 --- !u!4 &1207538285 stripped

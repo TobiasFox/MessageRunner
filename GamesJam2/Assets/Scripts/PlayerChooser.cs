@@ -144,7 +144,14 @@ public class PlayerChooser : MonoBehaviour
         if (selectedIndex == currentColorIndex)
         {
             currentColorIndex = UnityEngine.Random.Range(0, colorList.Count);
-            ChangeColorOfPSystem();
+            //ChangeColorOfPSystem();
+            foreach (var psystem in particleSystems)
+            {
+                var particleMain = psystem.main;
+                particleMain.startColor = (Color)colorList[currentColorIndex];
+            }
+            Renderer rend = GetComponent<Renderer>();           //color of player
+            rend.material.color = (Color)colorList[currentColorIndex];
             //playerImage.color = (Color)colorList[currentColorIndex];
         }
         else if (currentColorIndex > selectedIndex)
@@ -160,7 +167,13 @@ public class PlayerChooser : MonoBehaviour
         if (moveLeftRight > 0)
         {
             currentColorIndex = (currentColorIndex + 1) % colorList.Count;
-            ChangeColorOfPSystem();
+            foreach (var psystem in particleSystems)
+            {
+                var particleMain = psystem.main;
+                particleMain.startColor = (Color)colorList[currentColorIndex];
+            }
+            Renderer rend = GetComponent<Renderer>();           //color of player
+            rend.material.color = (Color)colorList[currentColorIndex];
             //playerImage.color = (Color)colorList[currentColorIndex];
             isChangingColor = true;
             readyForNextInput = Time.time + timeInterval;
@@ -168,7 +181,13 @@ public class PlayerChooser : MonoBehaviour
         else if (moveLeftRight < 0)
         {
             currentColorIndex = currentColorIndex == 0 ? currentColorIndex = colorList.Count - 1 : currentColorIndex - 1;
-            ChangeColorOfPSystem();
+            foreach (var psystem in particleSystems)
+            {
+                var particleMain = psystem.main;
+                particleMain.startColor = (Color)colorList[currentColorIndex];
+            }
+            Renderer rend = GetComponent<Renderer>();           //color of player
+            rend.material.color = (Color)colorList[currentColorIndex];
             //playerImage.color = (Color)colorList[currentColorIndex];
             readyForNextInput = Time.time + timeInterval;
             isChangingColor = true;

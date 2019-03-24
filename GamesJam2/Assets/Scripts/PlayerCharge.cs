@@ -11,6 +11,7 @@ public class PlayerCharge : MonoBehaviour
     [SerializeField] private AudioClip chargeClip;
 
     private PlayerManager playerManager;
+    private PlayerMovement playerMovement;
     private AudioSource audioSource;
     private bool isCharging;
 
@@ -18,18 +19,19 @@ public class PlayerCharge : MonoBehaviour
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
+        playerMovement = GetComponent<PlayerMovement>();
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Charge_P"+playerManager.playerNumber) && isChargeable)
+        if(Input.GetButtonDown("Charge_P"+playerMovement.GetPlayerNumber()) && isChargeable)
         {
             isCharging = true;
             StartCoroutine("Charge");
         }
-        else if(Input.GetButtonUp("Charge_P" + playerManager.playerNumber))
+        else if(Input.GetButtonUp("Charge_P" + playerMovement.GetPlayerNumber()))
         {
             isCharging = false;
             audioSource.loop = false;

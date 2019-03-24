@@ -183,4 +183,9 @@ public class PlayerMovement : MonoBehaviour
         isStunned = false;
         Debug.Log("player " + playerNumber + " isn't stunned anymore");
     }
+
+    public int GetPlayerNumber()
+    {
+        return playerNumber;
+    }
 }
