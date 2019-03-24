@@ -48,6 +48,7 @@ public class MessagesSpawn : MonoBehaviour
 
         newMessage.layer = startMessageLayer + (int)color;
         BlockPosition(newMessage.transform.position);
+        newMessage.GetComponentInChildren<ParticleSystem>()?.Play();
     }
 
     private Vector3 GetFreePosition()
