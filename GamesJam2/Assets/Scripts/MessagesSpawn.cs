@@ -10,6 +10,7 @@ public class MessagesSpawn : MonoBehaviour
     [SerializeField] private PoolBehaviour poolBehaviour;
     [SerializeField] private CustomColors customColors;
     [SerializeField] private float minSpawnDistance;
+    [SerializeField] private Color firstRandomColor;
 
     private List<Vector3> spawnPositions;
     private Dictionary<Vector3, bool> isPositionBlocked;
@@ -48,7 +49,13 @@ public class MessagesSpawn : MonoBehaviour
 
         newMessage.layer = startMessageLayer + (int)color;
         BlockPosition(newMessage.transform.position);
-        newMessage.GetComponentInChildren<ParticleSystem>()?.Play();
+
+        ParticleSystem newMessageParticles = newMessage.GetComponentInChildren<ParticleSystem>();   //color of particle system
+        ParticleSystem.MinMaxGradient grad = new ParticleSystem.MinMaxGradient(firstRandomColor, customColors.colors[(int)color]);
+        //grad.mode = ParticleSystemGradientMode.RandomColor;
+        var particleMain = newMessageParticles.main;
+        particleMain.startColor = grad;
+        newMessageParticles.Play();
     }
 
     private Vector3 GetFreePosition()

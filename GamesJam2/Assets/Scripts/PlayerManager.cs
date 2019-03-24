@@ -15,17 +15,17 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private CustomColors customColors;
     [SerializeField] private Image pointsImage;
     [SerializeField] private float maxEnergy;
+    [SerializeField] private ParticleSystem energyParticleSystem;
+    [SerializeField] private ParticleSystem[] orbitParticles;
 
     private GameManager gameManager;
     private PlayerMovement playerMovement;
     private int startPlayerLayer;
-    private ParticleSystem energyParticleSystem;
     private float _energy;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        energyParticleSystem = GetComponentInChildren<ParticleSystem>();
         startPlayerLayer = LayerMask.NameToLayer("Blue");
         gameManager = FindObjectOfType<GameManager>();
 
@@ -41,6 +41,11 @@ public class PlayerManager : MonoBehaviour
         pointsImage.color = customColors.colors[number];    //color of points
         var particleMain = energyParticleSystem.main;       //color of energy particle system
         particleMain.startColor = customColors.colors[number];
+        foreach(ParticleSystem particles in orbitParticles)
+        {
+            var orbitParticleMain = particles.main;       //color of orbit particle system
+            orbitParticleMain.startColor = customColors.colors[number];
+        }
 
         gameObject.layer = startPlayerLayer + number;
     }

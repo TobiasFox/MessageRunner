@@ -928,11 +928,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Message
       objectReference: {fileID: 0}
-    - target: {fileID: 7371306579063415191, guid: 7d48ce1f22bac0745bdd829285ed441a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 490284950438813587, guid: 7d48ce1f22bac0745bdd829285ed441a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -941,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 490284950438813587, guid: 7d48ce1f22bac0745bdd829285ed441a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9135016
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 490284950438813587, guid: 7d48ce1f22bac0745bdd829285ed441a,
         type: 3}
@@ -1857,11 +1852,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoints (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1966,6 +1956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfd6a40260b27846a1bd4fdd3f6367b, type: 3}
@@ -3303,11 +3298,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoints (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3412,6 +3402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfd6a40260b27846a1bd4fdd3f6367b, type: 3}
@@ -3541,6 +3536,7 @@ MonoBehaviour:
   poolBehaviour: {fileID: 189692692}
   customColors: {fileID: 11400000, guid: c51070124c720e149b86755e0f6e3a17, type: 2}
   minSpawnDistance: 5
+  firstRandomColor: {r: 0.990566, g: 0.76161444, b: 0.97735745, a: 1}
 --- !u!4 &362827876
 Transform:
   m_ObjectHideFlags: 0
@@ -8430,11 +8426,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPoints (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8715391883068026629, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8539,6 +8530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825690800260397838, guid: 1dfd6a40260b27846a1bd4fdd3f6367b,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfd6a40260b27846a1bd4fdd3f6367b, type: 3}
@@ -8725,21 +8721,11 @@ PrefabInstance:
       propertyPath: pointsImage
       value: 
       objectReference: {fileID: 13623963}
-    - target: {fileID: 7691445323903470627, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: maxPoints
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 534669904}
-    - target: {fileID: 3422305953705332394, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7428990902125387282, guid: 5e1d708064e69a742824c42482c297b6,
         type: 3}
       propertyPath: poolBehaviour
@@ -8750,56 +8736,6 @@ PrefabInstance:
       propertyPath: messagesSpawn
       value: 
       objectReference: {fileID: 362827875}
-    - target: {fileID: 6702732378459779986, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: chargeClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 32fe7a183e40db4469ca1738610c53f4, type: 3}
-    - target: {fileID: 3646215168198544988, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.37883562
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646215168198544988, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.37883562
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646215168198544988, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.37883562
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.105882406
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8528378577705868165, guid: 5e1d708064e69a742824c42482c297b6,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e1d708064e69a742824c42482c297b6, type: 3}
 --- !u!4 &1207538285 stripped
