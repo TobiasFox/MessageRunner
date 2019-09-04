@@ -15,3 +15,7 @@ You can choose a default color selection for each player when pressing 5.
 - Backgroundmusic (CC0) - http://freemusicarchive.org/music/Loyalty_Freak_Music/
 - Soundeffect (CC0) - https://freesound.org/people/Dneproman/sounds/334716/
 - Soundeffect https://opengameart.org/content/level-up-power-up-coin-get-13-sounds
+
+
+You can find more information here:  
+https://c4rina.itch.io/message-runner
