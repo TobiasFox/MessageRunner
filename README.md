@@ -1,6 +1,15 @@
-# Die spinnen, die Jugendlichen...
-This is a project for the second gamejam for the games master studies of the HAW.
-The topic is "Die spinnen, die Jugendlichen..." and will be implemented by Carina, Robin and Tobias  
+# Message Runner
+
+<img src="MessageRunner/Assets/Sprites/titleScreen.png" width="75%">  
+
+This is a HAW GameJam 4-player couch co-op game, developed in one week. The topic was "Die spinnen, die Jugendlichen...".  
+
+For each player a message in their player-color is spawned in the abstract form of a sphere. When a player collects their message a smaller sphere, indicating  the color of the receiver of this message, is following them.  Score points by delivering the message to the correct receiver.  
+
+<img src="MessageRunner/Assets/Sprites/ControllerTutorial2.png" width="50%">  
+
+Playable with Xbox and Playstation Controllers.  
+You can choose a default color selection for each player when pressing 5.  
 
 ## Asset-Sources  
 - Backgroundmusic (CC0) - http://freemusicarchive.org/music/Loyalty_Freak_Music/
